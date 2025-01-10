@@ -148,15 +148,11 @@ trigger:
   - platform: state
     entity_id:
       - sensor.my_weight
-condition:
-  - condition: and
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.my_weight
-        above: 75
-      - condition: numeric_state
-        entity_id: sensor.my_weight
-        below: 88
+conditions:
+  - condition: numeric_state
+    entity_id: sensor.my_weight
+    above: 75
+    below: 88
 action:
   - service: garmin_connect.add_body_composition
     data:
